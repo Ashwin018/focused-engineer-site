@@ -85,14 +85,14 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/ashwinkarthik",
+      href: "https://www.linkedin.com/in/ashwinkarthik05/",
       color: "text-primary",
       bgColor: "bg-primary/10"
     },
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/ashwinkarthik",
+      href: "https://github.com/Ashwin018",
       color: "text-foreground",
       bgColor: "bg-muted"
     }

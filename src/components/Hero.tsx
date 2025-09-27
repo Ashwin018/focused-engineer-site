@@ -71,7 +71,7 @@ const Hero = () => {
               <Mail className="h-6 w-6 text-card-foreground" />
             </a>
             <a
-              href="https://linkedin.com/in/ashwinkarthik"
+              href="https://linkedin.com/in/ashwinkarthik05"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-card-foreground/10 hover:bg-card-foreground/20 transition-colors duration-300"
@@ -80,7 +80,7 @@ const Hero = () => {
               <Linkedin className="h-6 w-6 text-card-foreground" />
             </a>
             <a
-              href="https://github.com/ashwinkarthik"
+              href="https://github.com/Ashwin018"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-card-foreground/10 hover:bg-card-foreground/20 transition-colors duration-300"

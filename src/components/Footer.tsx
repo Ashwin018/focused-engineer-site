@@ -11,12 +11,12 @@ const Footer = () => {
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/ashwinkarthik",
+      href: "https://linkedin.com/in/ashwinkarthik05",
       label: "LinkedIn"
     },
     {
       icon: Github,
-      href: "https://github.com/ashwinkarthik",
+      href: "https://github.com/Ashwin018",
       label: "GitHub"
     }
   ];
