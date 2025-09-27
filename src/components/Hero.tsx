@@ -1,106 +1,121 @@
-import { ChevronDown, Download, Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "./ui/button";
+
+import { Button } from "@/components/ui/button";
+import { Github, Linkedin, Mail, Download } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
-  const scrollToAbout = () => {
-    const aboutElement = document.getElementById("about");
-    if (aboutElement) {
-      aboutElement.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  const handleDownloadResume = () => {
+    // Create a download link for the resume
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // We'll need to add the resume to public folder
+    link.download = 'Resume.pdf';
+    link.click();
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative hero-gradient">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center animate-fade-up">
-          {/* Profile Photo */}
-          <div className="mb-8 flex justify-center">
-            <div className="relative">
-              <img
-                src={profilePhoto}
-                alt="Ashwin Karthik S M - AI & Data Science Engineer"
-                className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-primary/20 shadow-custom-lg"
-              />
-              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-10"></div>
+    <section 
+      className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${heroBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]"></div>
+      
+      <div className="container mx-auto relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div className="text-center lg:text-left space-y-8">
+            <div className="space-y-4">
+              <div className="inline-block px-4 py-2 bg-card/20 backdrop-blur-sm rounded-full border border-primary/20">
+                <span className="text-primary font-medium">AI & Data Science Student</span>
+              </div>
+              <h1 className="text-5xl lg:text-7xl font-heading font-bold text-foreground">
+                Hi, I'm{" "}
+                <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-glow">
+                  Ashwin Karthik S M
+                </span>
+              </h1>
+              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+                AI Enthusiast building innovative solutions 
+                with <span className="text-accent font-semibold">Machine Learning</span> and{" "}
+                <span className="text-secondary font-semibold">Web Technologies</span>
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button 
+                size="lg" 
+                className="gradient-primary hover:scale-105 transition-bounce text-white font-semibold px-8 py-6 text-lg glow-primary"
+                asChild
+              >
+                <a href="mailto:damu41437@gmail.com">
+                  <Mail className="mr-2 h-5 w-5" />
+                  Get In Touch
+                </a>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={handleDownloadResume}
+                className="border-primary/30 text-primary hover:bg-primary/10 hover:scale-105 transition-bounce px-8 py-6 text-lg backdrop-blur-sm"
+              >
+                <Download className="mr-2 h-5 w-5" />
+                Download Resume
+              </Button>
+            </div>
+
+            <div className="flex gap-6 justify-center lg:justify-start">
+              <a 
+                href="https://github.com/Ashwin018" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-card/20 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:scale-110 transition-bounce text-foreground hover:text-primary"
+              >
+                <Github className="h-6 w-6" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/ashwinkarthik05/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-card/20 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:scale-110 transition-bounce text-foreground hover:text-primary"
+              >
+                <Linkedin className="h-6 w-6" />
+              </a>
+              <a 
+                href="mailto:smashwinkarthik@gmail.com"
+                className="p-3 rounded-full bg-card/20 backdrop-blur-sm border border-primary/20 hover:border-primary/40 hover:scale-110 transition-bounce text-foreground hover:text-primary"
+              >
+                <Mail className="h-6 w-6" />
+              </a>
             </div>
           </div>
 
-          {/* Name and Title */}
-          <h1 className="text-4xl sm:text-6xl font-bold text-card-foreground mb-4 text-shadow">
-            Ashwin Karthik S M
-          </h1>
-          
-          <h2 className="text-xl sm:text-2xl font-medium text-card-foreground/80 mb-6">
-            AI & Data Science Engineer
-          </h2>
-
-          {/* Tagline */}
-          <p className="text-lg sm:text-xl text-card-foreground/70 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Passionate about exploring data, applying AI/ML techniques, and uncovering insights 
-            that support decision-making. Building the future through intelligent systems and data-driven solutions.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary-hover text-primary-foreground px-8 py-3 text-lg font-medium shadow-custom-md hover:shadow-custom-lg transition-all duration-300"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              Download Resume
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-card-foreground/30 text-card-foreground hover:bg-card-foreground/10 px-8 py-3 text-lg"
-              onClick={scrollToAbout}
-            >
-              Learn More
-            </Button>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex justify-center space-x-6">
-            <a
-              href="mailto:smashwinkarthik@gmail.com"
-              className="p-3 rounded-full bg-card-foreground/10 hover:bg-card-foreground/20 transition-colors duration-300"
-              aria-label="Email"
-            >
-              <Mail className="h-6 w-6 text-card-foreground" />
-            </a>
-            <a
-              href="https://linkedin.com/in/ashwinkarthik05"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-card-foreground/10 hover:bg-card-foreground/20 transition-colors duration-300"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-6 w-6 text-card-foreground" />
-            </a>
-            <a
-              href="https://github.com/Ashwin018"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-card-foreground/10 hover:bg-card-foreground/20 transition-colors duration-300"
-              aria-label="GitHub"
-            >
-              <Github className="h-6 w-6 text-card-foreground" />
-            </a>
+          {/* Profile Image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <div className="absolute -inset-4 gradient-rainbow rounded-full blur-xl opacity-60 animate-glow"></div>
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 backdrop-blur-sm animate-float">
+                <img 
+                  src={profilePhoto} 
+                  alt="Ashwin Karthik S M - AI & Data Science Student"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <button
-          onClick={scrollToAbout}
-          className="p-2 rounded-full bg-card-foreground/10 hover:bg-card-foreground/20 transition-colors duration-300"
-          aria-label="Scroll to About section"
-        >
-          <ChevronDown className="h-6 w-6 text-card-foreground" />
-        </button>
+        <div className="w-6 h-10 border-2 border-primary/40 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
+        </div>
       </div>
     </section>
   );
